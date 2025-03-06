@@ -1,0 +1,84 @@
+
+ 1. Selecting Elements
+ `getElementById(id)`: Selects an element using its `id` and allows modifications.  
+ `getElementsByClassName(className)`: Selects multiple elements with a specific class (returns HTMLCollection).  
+ `getElementsByTagName(tagName)`: Selects all elements of a specific tag (e.g., all `<p>` elements).  
+ `querySelector(selector)`: Selects the first matching element using a CSS selector.  
+ `querySelectorAll(selector)`: Selects all matching elements using a CSS selector (returns a NodeList).  
+
+
+
+ 2. Modifying DOM Elements
+ `innerText`: Changes the text content of an element.  
+ `innerHTML`: Updates the HTML inside an element, allowing new elements to be added.  
+ `style.property`: Modifies CSS properties of an element (e.g., color, background, border).  
+
+
+
+ 3. Creating & Appending Elements
+ `document.createElement(tag)`: Creates a new element dynamically.  
+ `appendChild(element)`: Adds a new element to the end of a parent element.  
+ `append(element)`: Similar to `appendChild`, but allows adding text or multiple elements.  
+ `insertBefore(newElement, referenceElement)`: Inserts an element before another existing element.  
+
+
+
+ 4. Removing Elements
+ `remove()`: Directly removes an element from the DOM.  
+ `removeChild(childElement)`: Removes a specific child element from its parent.  
+
+
+
+ 5. Event Handling
+ `addEventListener(event, callback)`: Attaches an event (like `click`, `mouseover`, etc.) to an element.  
+ `mouseover` & `mouseout`: Detects when the mouse enters and leaves an element.  
+ `keydown`: Captures keyboard input when a key is pressed.  
+
+
+
+ 6. Form Handling
+ `value`: Retrieves or updates the input field's value.  
+ `preventDefault()`: Stops the default form submission (prevents page reload).  
+ `trim()`: Removes unnecessary spaces from user input to validate empty fields.  
+
+
+
+ 7. Class Manipulation (`classList`)
+ `add(className)`: Adds a new CSS class to an element.  
+ `remove(className)`: Removes a CSS class from an element.  
+ `toggle(className)`: Adds the class if missing, otherwise removes it.  
+
+
+
+ 8. Window Methods
+ `setTimeout(callback, delay)`: Runs a function after a specific time (milliseconds).  
+ `setInterval(callback, interval)`: Repeats a function at fixed intervals until stopped.  
+ `clearInterval(intervalID)`: Stops a repeating interval process.  
+
+
+
+ 9. Local Storage & Session Storage
+ `localStorage.setItem(key, value)`: Stores data permanently in the browser.  
+ `localStorage.getItem(key)`: Retrieves stored data from local storage.  
+ `sessionStorage.setItem(key, value)`: Stores data only for the session (lost when the tab is closed).  
+
+
+
+ 10. Fetch API (AJAX)
+ `fetch(url)`: Fetches data from an API asynchronously.  
+ `.then(response => response.json())`: Converts the response into JSON format.  
+ `.catch(error)`: Handles any errors that occur during the fetch request.  
+ `async function() {}`: Defines an asynchronous function.  
+ `await fetch(url)`: Waits for the API response before proceeding.  
+
+
+
+ 11. Changing Attributes
+ `setAttribute(attr, value)`: Changes an element’s attribute (e.g., updating a link’s `href`).  
+ `getAttribute(attr)`: Retrieves the current value of an attribute.  
+
+
+
+ 12. Scroll Events
+ `window.addEventListener("scroll", callback)`: Detects when the user scrolls the page.  
+
