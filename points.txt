@@ -1,0 +1,3 @@
+IIFE - Immediately invoked function expression
+
+bina call kiye function execute karane ke liye use hota hai. can be used only once. to use multiple times, code needs to be copy pasted.
