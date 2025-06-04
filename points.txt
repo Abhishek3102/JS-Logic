@@ -1,3 +1,4 @@
 IIFE - Immediately invoked function expression
 
 bina call kiye function execute karane ke liye use hota hai. can be used only once. to use multiple times, code needs to be copy pasted.
+An IIFE (Immediately Invoked Function Expression) is used in JavaScript primarily to create a private scope and avoid polluting the global namespace. 
