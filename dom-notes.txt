@@ -82,3 +82,147 @@
  12. Scroll Events
  `window.addEventListener("scroll", callback)`: Detects when the user scrolls the page.  
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+differnce between innertext and textcontent
+The difference between `innerText` and `textContent` in HTML (JavaScript DOM) lies mainly in how they handle **whitespace**, **hidden elements**, and **performance**. Here's a breakdown:
+
+---
+
+### 🔹 `textContent`
+
+* Returns the **raw text** of an element and all its descendants.
+* Preserves **all text**, including that from hidden elements (e.g., elements with `display: none`).
+* Faster, because it **doesn't trigger reflow or style calculation**.
+* Preserves **line breaks**, but ignores styles like CSS `display: none`.
+
+✅ **Use when you want all the text exactly as it is in the DOM**, regardless of visibility or styling.
+
+```html
+<div id="example">
+  Hello <span style="display: none">World</span>
+</div>
+
+<script>
+  console.log(document.getElementById("example").textContent); 
+  // Output: "Hello World"
+</script>
+```
+
+---
+
+### 🔹 `innerText`
+
+* Returns the **rendered text**, i.e., what's actually visible to the user.
+* Ignores text from elements that are **hidden via CSS** (`display: none`, `visibility: hidden`, etc.).
+* Takes CSS styles into account (like line breaks).
+* Slower, because it **triggers layout and style recalculation**.
+
+✅ **Use when you want to extract only the visible, user-facing text**.
+
+```html
+<div id="example">
+  Hello <span style="display: none">World</span>
+</div>
+
+<script>
+  console.log(document.getElementById("example").innerText); 
+  // Output: "Hello"
+</script>
+```
+
+---
+
+### Summary Table
+
+| Feature               | `textContent`    | `innerText`           |
+| --------------------- | ---------------- | --------------------- |
+| Includes hidden text? | ✅ Yes            | ❌ No                  |
+| Triggers reflow?      | ❌ No             | ✅ Yes                 |
+| Performance           | 🟢 Faster        | 🔴 Slower             |
+| Preserves formatting? | ❌ No             | ✅ Yes (visible only)  |
+| Use case              | Get all raw text | Get only visible text |
+
+-------------------------------------------------------------------------------------------
+
+The difference between **HTMLCollection** and **NodeList** in the DOM API mainly revolves around **what they contain**, **how they're accessed**, and **how dynamic they are**.
+
+---
+
+### 🔹 HTMLCollection
+
+* **Live** collection: updates automatically if the DOM changes.
+* Contains only **Element nodes** (no text nodes, comments, etc.).
+* Returned by methods like:
+
+  * `document.getElementsByTagName()`
+  * `document.getElementsByClassName()`
+  * `element.children`
+
+```js
+const divs = document.getElementsByTagName('div'); // HTMLCollection
+```
+
+---
+
+### 🔹 NodeList
+
+* Can be **live** or **static**:
+
+  * **Live**: `Node.childNodes`
+  * **Static**: `querySelectorAll()`
+* Can contain any **Node** type: elements, text nodes, comments, etc.
+* Returned by methods like:
+
+  * `document.querySelectorAll()` (static)
+  * `Node.childNodes` (live)
+
+```js
+const divs = document.querySelectorAll('div'); // NodeList (static)
+```
+
+---
+
+### 🔁 Live vs Static Example
+
+```html
+<ul id="list">
+  <li>Item 1</li>
+</ul>
+
+<script>
+  const htmlCollection = document.getElementsByTagName('li');
+  const nodeList = document.querySelectorAll('li');
+
+  const ul = document.getElementById('list');
+  const newLi = document.createElement('li');
+  newLi.textContent = 'Item 2';
+  ul.appendChild(newLi);
+
+  console.log(htmlCollection.length); // 2 (live)
+  console.log(nodeList.length);       // 1 (static)
+</script>
+```
+
+---
+
+### 🧾 Summary Table
+
+| Feature          | HTMLCollection          | NodeList                           |
+| ---------------- | ----------------------- | ---------------------------------- |
+| Live or static   | ✅ Live                  | ❗Both (depends on method)          |
+| Contents         | Element nodes only      | All node types                     |
+| Indexable        | ✅ Yes (like array)      | ✅ Yes                              |
+| Array methods?   | ❌ No (needs conversion) | ❌ Usually no (unless `forEach`)    |
+| Common use cases | `getElementsBy*()`      | `querySelectorAll()`, `childNodes` |
+
+---
+
+### 🔁 Convert to real array (if needed)
+
+```js
+const arrFromHTML = Array.from(htmlCollection);
+const arrFromNodeList = [...nodeList];
+```
+
+Let me know if you want a visual DOM example or a real-world use case!
