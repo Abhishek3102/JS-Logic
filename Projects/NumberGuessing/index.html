@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6e7bff, #3a80d1);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #wrapper {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 30px 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffdd57;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+            background: #fff;
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            background: #e1f5fe;
+        }
+
+        .submitGuess {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submitGuess:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+        .guesses {
+            color: #ffdd57;
+        }
+
+        .lastResult {
+            font-weight: bold;
+        }
+
+        .lowOrHigh {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #ffdd57;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffdd57;
+        }
+
+        nav a[aria-current="page"] {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" aria-current="page">Home</a>
+        <a target="_blank" href="https://www.renderz.app">Fifarenderz App</a>
+    </nav>
+    <div id="wrapper">
+        <h1>Number guessing game</h1>
+        <p>Try to guess a random number between 1 and 100</p>
+        <p>You'll get only 10 attempts for it</p>
+        <br>
+        <form class="form">
+            <label2 for="guessField" id="guess">Guess a number</label2>
+            <input type="text" id="guessField" class="guessField">
+            <input type="submit" id="submit" value="Submit Guess" class="submitGuess">
+        </form>
+
+        <div class="result">
+            <p>Previous Guesses: <span class="guesses"></span></p>
+            <p>Guesses remaining: <span class="lastResult">10</span></p>
+            <p class="lowOrHigh"></p>
+        </div>
+    </div>
+    <script src="source.js"></script>
+</body>
+</html>
