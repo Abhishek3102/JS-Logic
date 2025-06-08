@@ -22,7 +22,7 @@ if (playGame) {
 }
 
 function validateGuess(guess) {
-  if (guess.trim === "" || guess < 1 || guess > 100 || isNaN(guess)) {
+  if (guess === "" || guess < 1 || guess > 100 || isNaN(guess)) {
     alert(
       `Please enter a valid number as your guessed number ${guess} is not valid`
     );
