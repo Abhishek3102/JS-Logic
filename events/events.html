@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        #clock {
+            font-size: 48px;
+            font-weight: bold;
+            color: chartreuse;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="event-id">
+  <img src="https://static.independent.co.uk/2023/03/24/22/a4bc02e65261b7025f7362f50c0f2a84Y29udGVudHNlYXJjaGFwaSwxNjc5NzQ5NDYy-2.70527756.jpg" alt="Description of the image" height="250px"/>
+</div>
+<h1 id="heading">All about Timeout</h1>
+<div id="clock"></div>
+<button type="button" id="start">Start</button>
+<button type="button" id="stop">Stop</button>
+</body>
+<script src="timeout.js">
+
+    const image = document.getElementById('event-id').addEventListener('click', function(e){
+        // console.log(e);
+        // console.log(e.target);
+    }, false)
+    // here false and true are there, false is default value
+    // This is event propagation. there are 2 types : event bubbling and event capturing
+    
+
+
+    // -------------------------------------------
+
+    // events to study
+    // type. timestamp, defaultPrevent, target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+</script>
+</html>
